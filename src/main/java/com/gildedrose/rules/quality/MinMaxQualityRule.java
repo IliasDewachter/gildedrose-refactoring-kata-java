@@ -3,20 +3,14 @@ package com.gildedrose.rules.quality;
 import com.gildedrose.Item;
 import com.gildedrose.rules.QualityRule;
 
-public class MinMaxQualityRule implements QualityRule {
+public abstract class MinMaxQualityRule implements QualityRule {
 
-    private final static int MIN = 0;
-    private final static int MAX = 50;
-
-    private QualityRule qualityRule;
-    public MinMaxQualityRule(QualityRule qualityRule) {
-        this.qualityRule = qualityRule;
-    }
+    private static final int MIN_QUALITY = 0;
+    private static final int MAX_QUALITY = 50;
 
     @Override
     public void apply(Item item) {
-        this.qualityRule.apply(item);
-        if (item.quality < MIN) item.quality = MIN;
-        if (item.quality > MAX) item.quality = MAX;
+        if (item.quality < MIN_QUALITY) item.quality = MIN_QUALITY;
+        else if (item.quality > MAX_QUALITY) item.quality = MAX_QUALITY;
     }
 }

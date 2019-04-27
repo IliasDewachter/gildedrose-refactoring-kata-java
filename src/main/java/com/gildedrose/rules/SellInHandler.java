@@ -2,10 +2,6 @@ package com.gildedrose.rules;
 
 import com.gildedrose.Item;
 import com.gildedrose.ItemNames;
-import com.gildedrose.rules.quality.AgedBrieQualityRule;
-import com.gildedrose.rules.quality.BackstagePassedQualityRule;
-import com.gildedrose.rules.quality.ConjuredQualityRule;
-import com.gildedrose.rules.quality.DefaultQualityRule;
 import com.gildedrose.rules.sellin.DefaultSellInRule;
 import com.gildedrose.rules.sellin.LegendarySellInRule;
 
