@@ -1,4 +1,5 @@
 # gildedrose-refactoring-kata-java
 
-Requirements: https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt
-Starting project: https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/Java
+[![Build Status](https://travis-ci.com/IliasDewachter/gildedrose-refactoring-kata-java.svg?branch=master)](https://travis-ci.com/IliasDewachter/gildedrose-refactoring-kata-java)
+
+Original project at https://github.com/emilybache/GildedRose-Refactoring-Kata
