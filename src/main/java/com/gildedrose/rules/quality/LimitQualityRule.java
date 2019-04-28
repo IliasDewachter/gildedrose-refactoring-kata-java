@@ -3,7 +3,7 @@ package com.gildedrose.rules.quality;
 import com.gildedrose.Item;
 import com.gildedrose.rules.QualityRule;
 
-public abstract class MinMaxQualityRule implements QualityRule {
+public class LimitQualityRule implements QualityRule {
 
     private static final int MIN_QUALITY = 0;
     private static final int MAX_QUALITY = 50;

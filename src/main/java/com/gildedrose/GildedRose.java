@@ -5,15 +5,19 @@ import com.gildedrose.rules.SellInHandler;
 
 class GildedRose {
     Item[] items;
+    private SellInHandler sellInHandler;
+    private QualityHandler qualityHandler;
 
-    public GildedRose(Item[] items) {
+    GildedRose(Item[] items) {
         this.items = items;
+        this.sellInHandler = new SellInHandler();
+        this.qualityHandler = new QualityHandler();
     }
 
-    public void updateQuality() {
+    void updateQuality() {
         for (Item item : items) {
-            SellInHandler.applySellInRule(item);
-            QualityHandler.applyQualityRule(item);
+            sellInHandler.applySellInRule(item);
+            qualityHandler.applyQualityRule(item);
         }
     }
 }

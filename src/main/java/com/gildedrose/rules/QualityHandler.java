@@ -8,22 +8,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QualityHandler {
-    private static Map<String, QualityRule> rules = new HashMap<>();
+    private Map<String, QualityRule> rules = new HashMap<>();
 
-    private static QualityRule defaultRule = new DefaultQualityRule();
-    private static QualityRule conjuredRule = new ConjuredQualityRule();
+    private QualityRule defaultRule;
+    private QualityRule conjuredRule;
 
-    static {
-        rules.put(ItemNames.AGED_BRIE, new AgedBrieQualityRule());
-        rules.put(ItemNames.BACKSTAGE_PASSES, new BackstagePassedQualityRule());
+    public QualityHandler() {
+        defaultRule = new CombinedQualityRule(new DefaultQualityRule(), new LimitQualityRule());
+        conjuredRule = new CombinedQualityRule(new ConjuredQualityRule(), new LimitQualityRule());
+
+        rules.put(ItemNames.AGED_BRIE, new CombinedQualityRule(new AgedBrieQualityRule(), new LimitQualityRule()));
+        rules.put(ItemNames.BACKSTAGE_PASSES, new CombinedQualityRule(new BackstagePassedQualityRule(), new LimitQualityRule()));
         rules.put(ItemNames.SULFURAS, new LegendaryQualityRule());
     }
 
-    public static void applyQualityRule(Item item) {
-        if (item.name.startsWith("Conjured"))
+    public void applyQualityRule(Item item) {
+        if (item.name.startsWith("Conjured")) {
             conjuredRule.apply(item);
-        else
+        } else {
             rules.getOrDefault(item.name, defaultRule).apply(item);
-
+        }
     }
 }
